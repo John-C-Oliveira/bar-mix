@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>bar-mix — Gerenciamento de Restaurante</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>bar-mix — Gerenciamento de Restaurante</h1>
+
+    <section id="auth">
+      <h2>Entrar</h2>
+      <form id="login-form">
+        <label>
+          Usuário
+          <input type="text" id="username" required />
+        </label>
+        <label>
+          Senha
+          <input type="password" id="password" required />
+        </label>
+        <div class="row">
+          <button type="submit">Entrar</button>
+          <button id="btn-reset" type="button">Resetar DB</button>
+        </div>
+      </form>
+      <div id="auth-msg" class="msg"></div>
+    </section>
+
+    <section id="admin-panel" class="hidden">
+      <h2>Painel Administrador</h2>
+
+      <div class="card">
+        <h3>Cadastrar Garçom</h3>
+        <form id="add-waiter-form">
+          <label>
+            Nome de usuário
+            <input type="text" id="waiter-username" required />
+          </label>
+          <label>
+            Senha
+            <input type="password" id="waiter-password" required />
+          </label>
+          <button type="submit">Cadastrar Garçom</button>
+        </form>
+        <div id="waiter-msg" class="msg"></div>
+      </div>
+
+      <div class="card">
+        <h3>Cadastrar Produto</h3>
+        <form id="add-product-form">
+          <label>
+            Nome do produto
+            <input type="text" id="product-name" required />
+          </label>
+          <label>
+            Preço de entrada (custo) — R$
+            <input type="number" id="product-cost" min="0" step="0.01" required />
+          </label>
+          <label>
+            Preço de venda — R$
+            <input type="number" id="product-price" min="0" step="0.01" required />
+          </label>
+          <button type="submit">Cadastrar Produto</button>
+        </form>
+        <div id="product-msg" class="msg"></div>
+      </div>
+
+      <div class="card">
+        <h3>Garçons cadastrados</h3>
+        <ul id="waiters-list" class="list"></ul>
+      </div>
+
+      <div class="card">
+        <h3>Produtos cadastrados</h3>
+        <ul id="products-list" class="list"></ul>
+      </div>
+
+      <div class="card">
+        <h3>Relatório Semanal (últimos 7 dias)</h3>
+        <div class="row">
+          <button id="btn-generate-report">Gerar relatório</button>
+          <button id="btn-export-report">Exportar JSON</button>
+        </div>
+        <div id="report-msg" class="msg"></div>
+        <div id="weekly-report" class="hidden">
+          <h4>Resumo</h4>
+          <div id="report-summary" class="small-muted"></div>
+          <h4>Por produto</h4>
+          <ul id="report-list" class="list"></ul>
+        </div>
+      </div>
+
+      <button id="btn-logout-admin" class="btn-logout">Sair</button>
+    </section>
+
+    <section id="waiter-panel" class="hidden">
+      <h2>Painel Garçom</h2>
+
+      <div class="card">
+        <h3>Mesas</h3>
+        <div id="tables" class="tables-grid"></div>
+      </div>
+
+      <div class="card">
+        <h3 id="current-table-title">Mesa: —</h3>
+        <div id="order-controls" class="hidden">
+          <div class="row">
+            <select id="product-select"></select>
+            <input id="product-qty" type="number" min="1" value="1" style="width:80px" />
+            <button id="btn-add-item">Adicionar</button>
+          </div>
+          <h4>Itens do pedido</h4>
+          <ul id="order-items" class="list"></ul>
+          <div id="order-totals" class="small-muted"></div>
+          <div class="row" style="margin-top:8px">
+            <button id="btn-close-bill">Fechar conta</button>
+            <button id="btn-mark-paid" class="hidden">Marcar como Pago</button>
+          </div>
+        </div>
+        <div id="no-table-msg" class="small-muted">Selecione uma mesa para iniciar o atendimento.</div>
+      </div>
+
+      <button id="btn-logout-waiter" class="btn-logout">Sair</button>
+    </section>
+
+    <footer>
+      <small>Aplicação de exemplo — roda inteiramente no navegador (localStorage). Não use em produção.</small>
+    </footer>
+  </main>
+
+  <script src="app.complete.js"></script>
+</body>
+</html>

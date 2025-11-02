@@ -1,0 +1,11 @@
+{
+  "users": [
+    { "id": 1, "username": "admin", "password": "admin", "role": "admin" }
+  ],
+  "products": [
+    { "id": 1, "name": "Cerveja", "cost": 2.0, "price": 6.0 },
+    { "id": 2, "name": "Petisco", "cost": 3.0, "price": 12.0 }
+  ],
+  "tables": [1,2,3,4,5],
+  "orders": []
+}

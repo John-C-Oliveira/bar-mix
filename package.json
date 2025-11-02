@@ -1,0 +1,10 @@
+{
+  "name": "bar-mix-static-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server public -p 8080 -c-1",
+    "test": "node tests/ui.test.js"
+  },
+  "devDependencies": {}
+}
